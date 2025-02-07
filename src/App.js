@@ -8,6 +8,9 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AddCourse } from "./components/AddCourse";
 import { Courses } from "./components/Courses";
 import { Invoice } from "./components/test";
+import { Profile } from "./components/Profile";
+import { UpdateProfile } from "./components/UpdateProfile";
+
 
 function App() {
   return (
@@ -23,7 +26,8 @@ function App() {
 
           {/* Protect Routes */}
           <Route path="/addcourse" element={<ProtectedRoute> <AddCourse /> </ProtectedRoute>}/>
-       
+          <Route path="/updateprofile" element={<ProtectedRoute> < UpdateProfile/> </ProtectedRoute>}/>
+          <Route path="/profile" element={<ProtectedRoute> < Profile/> </ProtectedRoute>}/>
         </Routes>
       </div>
     </Router>

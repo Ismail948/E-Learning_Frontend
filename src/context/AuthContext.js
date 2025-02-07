@@ -11,6 +11,11 @@ export const AuthProvider = ({ children }) => {
   const [userEmail, setUserEmail] = useState(sessionStorage.getItem("userEmail"));
   const [userName, setUserName] = useState(sessionStorage.getItem("userName"));
   const [userToken, setUserToken] = useState(sessionStorage.getItem("authToken"));
+  const [userState, setUserState] = useState(sessionStorage.getItem("userState"));
+  const [userPhonenum, setUserPhonenum] = useState(sessionStorage.getItem("userPhonenum"));
+  const [userId, setUserId] = useState(sessionStorage.getItem("userId"));
+  const [userFirstName, setUserFirstName] = useState(sessionStorage.getItem("userFirstName"));
+  const [userProfileUrl, setUserProfileUrl] = useState(sessionStorage.getItem("userProfileUrl"));
 
   const login = async (email, password) => {
     try {
@@ -23,13 +28,25 @@ export const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         const data = await response.json();
         sessionStorage.setItem("authToken", data.token); // Save the token to sessionStorage
-        sessionStorage.setItem("userEmail", email); // Save the email to sessionStorage
+        sessionStorage.setItem("userEmail", data.email); // Save the email to sessionStorage
         sessionStorage.setItem("userName",data.username);  // Save the username to sessionStorage
-        
+        sessionStorage.setItem("userPhonenum",data.phonenum);
+        sessionStorage.setItem("userState",data.state);
+        sessionStorage.setItem("userId",data.userid);
+        sessionStorage.setItem("userFirstName",data.name);
+        sessionStorage.setItem("userProfileUrl",data.profileurl);
+
+
         setIsAuthenticated(true);
-        setUserEmail(email); 
+        setUserEmail(data.email); 
+        setUserId(data.userid); 
+        setUserPhonenum(data.phonenum); 
+        setUserState(data.state); 
         setUserName(data.username);
         setUserToken(data.token);
+        setUserProfileUrl(data.profileurl);
+        setUserFirstName(data.name);
+
 
         return true;
       } else {
@@ -47,11 +64,16 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
     setUserEmail(null); // Reset email state
     setUserName(null);
+    setUserId(null);
     setUserToken(null);
+    setUserPhonenum(null);
+    setUserState(null);
+    setUserFirstName(null);
+    setUserProfileUrl(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, userEmail, login, logout ,userName,userToken}}>
+    <AuthContext.Provider value={{ isAuthenticated, userEmail, login, logout ,userName,userToken,userPhonenum,userState,userId,userFirstName,userProfileUrl,setUserProfileUrl}}>
       {children}
     </AuthContext.Provider>
   );

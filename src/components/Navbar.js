@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-  const { logout, isAuthenticated, userName } = useAuth();
+  const { logout, isAuthenticated, userName,userFirstName } = useAuth();
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -60,7 +60,7 @@ export const Navbar = () => {
                 onClick={toggleDropdown}
                 className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800 transition-all duration-200"
               >
-                <span className="text-lg font-semibold">{userName || "User"}</span>
+                <span className="text-lg font-semibold">{userFirstName || "User"}</span>
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"

@@ -89,7 +89,7 @@ export const Register = () => {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              placeholder="Full Name"
+              placeholder="UserName"
               className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm sm:text-base focus:ring-2 focus:ring-blue-300 outline-none"
             />
             <input
