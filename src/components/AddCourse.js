@@ -36,7 +36,7 @@ export const AddCourse = () => {
 
     try {
       // Upload the image to the backend
-      const response = await axios.post("http://localhost:8080/upload", formData, {
+      const response = await axios.post("https://www.elearningbackend.bitecodes.com/upload", formData, {
         
         headers: {
           "Content-Type": "multipart/form-data",

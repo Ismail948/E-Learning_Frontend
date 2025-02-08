@@ -15,7 +15,7 @@ export const Profile = () => {
         if (!userId) return;
 
         console.log("Fetching data for userId:", userId);
-        const response = await axios.get(`http://localhost:8080/api/auth/user/${userId}`);
+        const response = await axios.get(`https://www.elearningbackend.bitecodes.com/api/auth/user/${userId}`);
         
         if (response.data) {
           console.log("API Response:", response.data);

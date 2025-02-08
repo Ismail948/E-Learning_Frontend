@@ -17,7 +17,7 @@ export const UpdateProfile = () => {
         if (!userId) return;
 
         console.log("Fetching user data for ID:", userId);
-        const response = await axios.get(`http://localhost:8080/api/auth/user/${userId}`);
+        const response = await axios.get(`https://www.elearningbackend.bitecodes.com/api/auth/user/${userId}`);
         
         if (response.data) {
           console.log("API Response:", response.data);
@@ -52,11 +52,11 @@ export const UpdateProfile = () => {
         const imageForm = new FormData();
         imageForm.append("thumbnailUrl", profileImage);
 
-        const uploadResponse = await axios.post("http://localhost:8080/upload/profilephoto", imageForm, {
+        const uploadResponse = await axios.post("https://www.elearningbackend.bitecodes.com/upload/profilephoto", imageForm, {
           headers: { "Content-Type": "multipart/form-data" }
         });
 
-        newProfileUrl = `http://localhost:8080/ProfilePhotos/${uploadResponse.data}`;
+        newProfileUrl = `https://www.elearningbackend.bitecodes.com/ProfilePhotos/${uploadResponse.data}`;
       }
 
       // Prepare updated user object
@@ -70,7 +70,7 @@ export const UpdateProfile = () => {
       };
 
       // Send update request
-      const response = await axios.put(`http://localhost:8080/api/auth/update/${userId}`, updatedUser);
+      const response = await axios.put(`https://www.elearningbackend.bitecodes.com/api/auth/update/${userId}`, updatedUser);
 
       if (response.status === 200) {
         setSuccess(true);

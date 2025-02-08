@@ -53,7 +53,7 @@ export const Register = () => {
     if (!validateForm()) return; // If validation fails, do not proceed
 
     try {
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch("https://www.elearningbackend.bitecodes.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
