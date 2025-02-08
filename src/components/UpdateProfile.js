@@ -56,7 +56,7 @@ export const UpdateProfile = () => {
           headers: { "Content-Type": "multipart/form-data" }
         });
 
-        newProfileUrl = `https://www.elearningbackend.bitecodes.com/ProfilePhotos/${uploadResponse.data}`;
+        newProfileUrl = `${uploadResponse.data}`;
       }
 
       // Prepare updated user object
