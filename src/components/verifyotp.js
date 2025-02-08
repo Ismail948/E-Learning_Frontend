@@ -16,7 +16,7 @@ export const VerifyOtp = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch("http://localhost:8080/api/auth/verify-otp", {
+      const response = await fetch("https://www.elearningbackend.bitecodes.com/api/auth/verify-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
